@@ -1,0 +1,16 @@
+.not_found{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 90vh;
+background-color: cadetblue;
+color: white;
+}
+
+.not_found h2{
+   font-family: Arial, Helvetica, sans-serif;
+    }
+.not_found p{
+padding: 10px;
+}

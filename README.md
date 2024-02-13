@@ -1,3 +1,9 @@
+# sample user login:
+We can create login by register option.
+# sample admin login (Please dont delete admin loginID in our project):
+admin user: karthik@gmail.com
+adming pwd: karthik123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
