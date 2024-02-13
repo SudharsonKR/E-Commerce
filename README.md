@@ -3,6 +3,8 @@ We can create login by register option.
 # sample admin login (Please dont delete admin loginID in our project):
 admin user: karthik@gmail.com
 adming pwd: karthik123
+# TEST visa card number:
+4000 0035 6000 0008
 
 # Getting Started with Create React App
 
