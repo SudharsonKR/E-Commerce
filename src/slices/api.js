@@ -1,4 +1,4 @@
-export const url = "http://localhost:8001/api";
+export const url = "https://e-commerce-cmlq.onrender.com/api";
 
 export const setHeaders = () => {
   const headers = {
