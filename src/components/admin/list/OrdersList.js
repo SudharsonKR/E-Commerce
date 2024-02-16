@@ -1,10 +1,10 @@
+import React, { useEffect } from 'react';
 import { DataGrid} from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { ordersEdit, ordersFetch } from '../../../slices/ordersSlice';
 import moment from 'moment';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 
 export default function OrdersList() {
 
@@ -12,7 +12,7 @@ export default function OrdersList() {
     
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+    
     console.log("list", list)
 
     useEffect(()=>{
@@ -38,7 +38,7 @@ date: moment(order.createdAt).fromNow(),
               <div>
                  {params.row.dStatus === "pending" ? <Pending>Pending</Pending> :
                  params.row.dStatus === "dispatched" ? <Dispatched>Dispatched</Dispatched> : 
-                 params.row.dStatus === "delivered" ? <Delivered>delivered</Delivered> : ("error")}
+                 params.row.dStatus === "delivered" ? <Delivered>Delivered</Delivered> : ("error")}
               </div>
           )
       } },
@@ -75,6 +75,8 @@ const handleOrderDelivered = (id) =>{
 }
             
   return (
+    <div>
+      <h3>Orders List</h3>
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={rows}
@@ -88,6 +90,7 @@ const handleOrderDelivered = (id) =>{
         checkboxSelection
         disableSelectionOnClick
       />
+    </div>
     </div>
   );
 }

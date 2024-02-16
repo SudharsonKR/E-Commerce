@@ -26,9 +26,9 @@ const Product = () => {
       }catch(error){
         console.log("admin-summary part-income:", error)
       }
-      setLoading(false)
     }
     fetchData()
+    setLoading(false);
   },[]);
 
   const handleAddToCart = (product)=>{

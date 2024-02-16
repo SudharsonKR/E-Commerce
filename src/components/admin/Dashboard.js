@@ -1,13 +1,20 @@
 import React from "react";
 import { FaClipboard, FaStore, FaTachometerAlt, FaUsers } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Dashboard = () => {
   const auth = useSelector((state) => state.auth);
 
-  if (!auth.isAdmin) return <p>Access denied. Not an Admin!</p>;
+  if (!auth.isAdmin) return (
+    
+    <div style={{textAlign: "center", padding: "10px", marginTop: "10rem", boxSizing:"content-box", fontSize:"large"}}>
+  <p>Access denied. You are Not an Admin!</p>
+  <p>Please Go To <Link to = '/'>Home</Link> Page</p>
+  </div>
+  
+  );
 
   return (
     <StyledDashboard>

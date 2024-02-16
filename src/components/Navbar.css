@@ -51,12 +51,12 @@
     transition: all 200ms;
 }
 
-.nav_bar .logout:hover{
+/* .nav_bar .logout:hover{
     border-style:solid;
     border-radius: 5px;
     padding: 0 5px;
     transition: all 200ms;
-}
+} */
 
 @media (max-width: 665px) {
     /* NavBar */

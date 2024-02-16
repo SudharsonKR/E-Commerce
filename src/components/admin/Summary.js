@@ -28,7 +28,7 @@ const Summary = () => {
     return 0;
   }
 
-  //users
+  //users compare
   useEffect(()=>{
     async function fetchData(){
       try{
@@ -36,7 +36,7 @@ const Summary = () => {
 
       res.data.sort(compare)
       setUsers(res.data)
-      console.log("summary-usres",res.data)
+      
       setUsersPercentage(((res.data[1].total - res.data[0].total)/res.data[1].total)*100)
 
       }catch(error){

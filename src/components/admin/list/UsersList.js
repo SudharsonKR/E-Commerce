@@ -12,6 +12,8 @@ export default function UsersList() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
+    console.log("user list count", userlist.length)
+
     useEffect(()=>{
         dispatch(usersFetch())
         
@@ -58,6 +60,8 @@ export default function UsersList() {
       };
       
   return (
+    <div>
+      <h3>Users List</h3>
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={rows}
@@ -71,6 +75,7 @@ export default function UsersList() {
         checkboxSelection
         disableSelectionOnClick
       />
+    </div>
     </div>
   );
 }

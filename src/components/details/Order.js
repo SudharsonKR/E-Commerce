@@ -11,37 +11,40 @@ const Order = () => {
   const [order, setOrder]= useState({});
   const [loading, setLoading] = useState(false);
 
+  
+
     useEffect(()=>{
       const fetchOrder = async()=>{
         try{
           setLoading(true);
-          const res = await axios.get(`${url}/orders/findOne/${params.id}`, setHeaders())
+          const res = await axios.get(`${url}/orders/findOne/${params.id}`, setHeaders());
           setOrder(res.data);
-          
+                 
         }catch (err){
-          console.log(err)
+          console.log("Vies Order Status", err)
         }
         setLoading(false);
-      }
+      };
       fetchOrder();
+      
     },[params.id]);
   return (
     <StyledOrder>{
       loading ? (
-        <p>Loading...</p>
+        <p>Loading...Please wait</p>
       ) : (        
         <>
         <OrdersContainer>
           <h2>Order Details</h2>
           <p>
-            Delivery Status:
-            {order.delviery_status === "pending" ? (
+            Delivery Status :
+            {order.delivery_status === "pending" ? (
               <Pending>Pending</Pending>
-            ): order.delviery_status === "dispatched" ? (
+            ) : order.delivery_status === "dispatched" ? (
             <Dispatched>Dispatched</Dispatched>
-            ): order.delviery_status === "delivered" ? (
+            ) : order.delivery_status === "delivered" ? (
               <Delivered>Delivered</Delivered>
-              ) :("Error")}
+              ) : ("Error")}              
           </p>
           <h3>Ordered Products</h3>
           <Items>
@@ -49,7 +52,7 @@ const Order = () => {
               <Item key = {index}>
                 <span>{product.description}</span>
                 <span>{product.quantity}</span>
-                <span>{"₹" + (product.amount_total)}</span>
+                <span>{"₹" + (product.amount_total)/100}</span>
               </Item>
             ))}
           </Items>
@@ -103,9 +106,10 @@ margin-bottom: 0.5rem;
 const Pending = styled.div`
 color: rgb(253, 181, 40);
 background-color: rgba(253, 181, 40, 0.12);
-padding: 5px;
+padding: 3px 5px;
 border-radius: 5px;
 font-size: 14px;
+width: fit-content;
 `;
 
 const Dispatched = styled.div`
@@ -113,6 +117,7 @@ color: rgb(38, 198, 349);
 background-color: rgba(38, 198, 249, 0.12);
 padding: 5px;
 border-radius: 5px;
+width: fit-content;
 `;
 
 const Delivered = styled.div`
@@ -120,4 +125,5 @@ color: rgb(102, 108, 255);
 background-color: rgba(102, 108, 255, 0.12);
 padding: 5px;
 border-radius: 5px;
+width: fit-content;
 `;

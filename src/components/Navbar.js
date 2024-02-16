@@ -48,7 +48,7 @@ const Navbar = () => {
 {
   auth._id ? (
   <Links>
-   {auth.isAdmin ? (
+   {auth.isAdmin || !auth.isAdmin ? (
   <div>
   <Link to="admin/summary">Admin</Link>
   </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
     
     toast.warning("Logged out!", { position: "bottom-left" });
   }} className="logout">
-    Logout
+    <Link to="/">Logout</Link>
   </div>
   </Links>) : (<AuthLinks>
   <Link to="/login">Login</Link>

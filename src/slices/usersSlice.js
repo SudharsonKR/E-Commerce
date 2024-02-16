@@ -13,7 +13,7 @@ export const usersFetch = createAsyncThunk(
     "users/usersFetch",
     async()=>{
         try{
-        const response = await axios.get(`${url}/users`, setHeaders())
+        const response = await axios.get(`${url}/users`)
         
         return response.data
         } catch (error){
